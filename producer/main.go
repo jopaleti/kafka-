@@ -16,7 +16,7 @@ type Order struct {
 
 func main() {
 	http.HandleFunc("/order", placeOrder)
-	log.Fatal(http.ListenAndServe(":3000", nil))
+	log.Fatal(http.ListenAndServe(":3002", nil))
 }
 
 func ConnectProducer(brokers []string) (sarama.SyncProducer, error) {
@@ -29,7 +29,7 @@ func ConnectProducer(brokers []string) (sarama.SyncProducer, error) {
 }
 
 func PushOrderToQueue(topic string, message []byte) error {
-	brokers := []string{"localhost:9092"}
+	brokers := []string{"localhost:29092"}
 	// Create connection
 	producer, err := ConnectProducer(brokers)
 	if err != nil {

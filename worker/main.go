@@ -15,7 +15,7 @@ func main() {
 	msgCount := 0
 
 	// 1. Create a consumer and start it.
-	worker, err := ConnectConsumer([]string{"localhost:9092"})
+	worker, err := ConnectConsumer([]string{"localhost:29092"})
 	if err != nil {
 		panic(err)
 	}
